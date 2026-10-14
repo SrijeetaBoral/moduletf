@@ -7,8 +7,8 @@ resource "aws_security_group" "ssh" {
 }
 
 resource "aws_security_group" "public_http" {
-  name = var.public_http_sg_name
-  vpc_id =var.vpc_id
+  name   = var.public_http_sg_name
+  vpc_id = var.vpc_id
   tags = {
     Name = var.public_http_sg_name
   }
@@ -16,7 +16,7 @@ resource "aws_security_group" "public_http" {
 }
 
 resource "aws_security_group" "private_http" {
-  name = var.private_http_sg_name
+  name   = var.private_http_sg_name
   vpc_id = var.vpc_id
   tags = {
     Name = var.private_http_sg_name
