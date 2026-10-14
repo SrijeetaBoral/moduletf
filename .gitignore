@@ -1,0 +1,13 @@
+# Local Terraform directory (providers, modules cache)
+.terraform/
+
+# State files (can contain sensitive data)
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Plan output files
+*.tfplan
