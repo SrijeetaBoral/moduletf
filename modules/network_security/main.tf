@@ -44,9 +44,9 @@ resource "aws_vpc_security_group_ingress_rule" "public_http_in" {
 
 resource "aws_vpc_security_group_ingress_rule" "private_http_in" {
   security_group_id            = aws_security_group.private_http.id
-  ip_protocol                 = "tcp"
-  from_port                   = 80
-  to_port                     = 80
+  ip_protocol                  = "tcp"
+  from_port                    = 80
+  to_port                      = 80
   referenced_security_group_id = aws_security_group.public_http.id
 
 }
@@ -60,8 +60,8 @@ resource "aws_vpc_security_group_egress_rule" "all_out" {
 
   }
 
-  
+
   security_group_id = each.value
-  ip_protocol          = "-1"
-  cidr_ipv4 = "0.0.0.0/0"
+  ip_protocol       = "-1"
+  cidr_ipv4         = "0.0.0.0/0"
 }
