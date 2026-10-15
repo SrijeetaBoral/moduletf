@@ -25,14 +25,16 @@ resource "aws_launch_template" "this" {
   IID=$(curl -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/instance-id)
   AZ=$(curl -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/placement/availability-zone)
   IP=$(curl -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/local-ipv4)
+  UUID=$(cat /proc/sys/kernel/random/uuid)
   cat > /var/www/html/index.html <<HTML 
   <h1>Launch template ${var.launch_template_name}</h1>
   <p>Instance type: ${var.instance_type}</p>
   <p>Instance ID: $IID</p>
   <p>Availability Zone: $AZ</p>
   <p>Private IP: $IP</p>
-    HTML
-    EOT 
+  <p>UUID: $UUID</p>
+  HTML
+ EOT 
   )
 
   metadata_options {
